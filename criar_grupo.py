@@ -118,12 +118,10 @@ def checar_grupo(nome_do_grupo):
         atualizar_log(log, 'checar grupo')
         print(log_resultado_testes)
 
-print('inicio fora da main')
 
 if __name__ == '__main__':
    
     navegador.get(link_frontend)
-    print('cheguei aq')
     wait_click_class(login_google)
 
     # focar tela login google
