@@ -7,11 +7,11 @@ moment = datetime.datetime.now().strftime("%A %d %B %y %I:%M")
 moment = str(datetime.datetime.now().strptime(moment, "%A %d %B %y %I:%M")).replace(':', '-')
 
 navegador = uc.Chrome()
-link_frontend = "https://cerberus-front.vercel.app/"
+link_frontend = "https://cerberus-front.vercel.app"
 
 # credentials
-user_id = '-NRplxUo09agV0nxT3Q7'
-authorization = 'dccc54bb-6444-447d-b258-091dc2e1bf7e'
+user_id = ''
+authorization = ''
 
 header = {'user_id': f'{user_id}',
           'authorization': f'{authorization}'
@@ -21,7 +21,7 @@ email = ""
 senha_email = ""
 
 # BOTOES LOGIN GOOGLE
-login_google = '/html/body/div/button'
+login_google = 'LoginButton_loginSession__Cfhim' # BY.CLASSNAME
 email_google = '//*[@id="identifierId"]'
 senha_google = '//*[@id="password"]/div[1]/div/div[1]/input'
 botao_ok = '//*[@id="identifierNext"]/div/button/span'

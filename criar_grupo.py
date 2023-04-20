@@ -4,7 +4,6 @@ from selenium.webdriver.common.by import By
 import time
 from constantes import *
 from utils.notificar_resultados import *
-from utils.envia_email import *
 
 #TODO:
 #Deletar grupo após fim do teste, para evitar acumulo no banco de dados
@@ -119,10 +118,13 @@ def checar_grupo(nome_do_grupo):
         atualizar_log(log, 'checar grupo')
         print(log_resultado_testes)
 
+print('inicio fora da main')
 
 if __name__ == '__main__':
+   
     navegador.get(link_frontend)
-    wait_click(login_google)
+    print('cheguei aq')
+    wait_click_class(login_google)
 
     # focar tela login google
     focar_janela_google()
@@ -145,5 +147,5 @@ if __name__ == '__main__':
     focar_janela_main()
     grupo = criar_grupo()
     checar_grupo(grupo)
-    enviar_email(log_resultado_testes)
+    print(log_resultado_testes)
     navegador.quit()
