@@ -8,7 +8,7 @@ from utils.notificar_resultados import *
 #TODO:
 #Deletar grupo após fim do teste, para evitar acumulo no banco de dados
 #Enviar JSON de resultado para email e posteriormente registrar num banco de dados
-#criar repositorio e explicar as etapas do fluxo no readme
+#organizar repositorio explicando o fluxo do teste
 
 
 def wait_to_send(element, Send):
@@ -16,6 +16,20 @@ def wait_to_send(element, Send):
     try:
         WDW(navegador, 5).until(EC.presence_of_element_located(('xpath', element)))
         Enter_Data = navegador.find_element('xpath', element)
+        Enter_Data.send_keys(Send)
+        time.sleep(2)
+        resultado = True
+    except:
+        return resultado
+
+    return resultado
+
+
+def wait_to_sendByClass(element, Send):
+    resultado = False
+    try:
+        WDW(navegador, 5).until(EC.presence_of_element_located((By.CLASS_NAME, element)))
+        Enter_Data = navegador.find_element(By.CLASS_NAME, element)
         Enter_Data.send_keys(Send)
         time.sleep(2)
         resultado = True
@@ -102,7 +116,7 @@ def criar_grupo():
         wait_click_class(botao_add_grupo)
         wait_to_send(campo_nome_grupo, nome_grupo)
         wait_to_send(campo_desc_grupo, desc_grupo)
-        wait_click(botao_criar_grupo)
+        wait_click_class(botao_criar_grupo)
         time.sleep(2)
         return nome_grupo
     except:
